@@ -1,0 +1,65 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>It's a Boy!</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-family: Arial, sans-serif;
+      height: 100vh;
+      margin: 0;
+      background-color: #fff0f5;
+      color: #333;
+    }
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+    }
+    #countdown {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+    .message {
+      font-size: 1.2rem;
+      margin-top: 20px;
+    }
+    img {
+      max-width: 300px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Gender Reveal Countdown</h1>
+  <div id="countdown">10</div>
+  <img id="revealImage" src="" alt="Gender Reveal" style="display:none;" />
+  <div class="message" id="blessing" style="display:none;">
+    We can't wait for this little one to join our family! 💙
+  </div>
+
+  <script>
+    let countdown = 10;
+    const countdownEl = document.getElementById('countdown');
+    const revealImage = document.getElementById('revealImage');
+    const blessing = document.getElementById('blessing');
+
+    const interval = setInterval(() => {
+      countdown--;
+      countdownEl.textContent = countdown;
+      if (countdown === 0) {
+        clearInterval(interval);
+        countdownEl.style.display = 'none';
+        revealImage.style.display = 'block';
+        revealImage.src = 'its-a-boy.png';
+        blessing.style.display = 'block';
+      }
+    }, 1000);
+  </script>
+</body>
+</html>
